@@ -2,11 +2,19 @@ package com.nelioalves.cursomscnovo.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity//Indica que é uma entidade do JPA.
 public class Categoria implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	//Atributos
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//Estratégia de geração automática dos ID.
 	private Integer id;
 	private String nome;
 	
