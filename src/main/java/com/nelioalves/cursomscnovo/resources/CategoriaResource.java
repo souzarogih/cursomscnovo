@@ -21,14 +21,14 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
-	/*Este método faz consulta no endpoint de categorias*/
+	/*Método de consulta no endpoint de Categorias*/
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)//Informa que é um metódo do tipo GET
-	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = service.buscar(id);
+	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
+		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	/*Esse método faz o insert de uma nova categoria no endpoint categorias*/
+	/*Método para insert de uma nova Categoria*/
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Categoria obj){
 		obj = service.insert(obj);
@@ -36,6 +36,12 @@ public class CategoriaResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	
+	/*Método para alterar uma Categoria*/
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Categoria obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 	
 }
