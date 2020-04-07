@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.nelioalves.cursomscnovo.domain.Categoria;
+import com.nelioalves.cursomscnovo.dto.CategoriaDTO;
 import com.nelioalves.cursomscnovo.repositories.CategoriaRepository;
 import com.nelioalves.cursomscnovo.services.exceptions.DataIntegrityException;
 import com.nelioalves.cursomscnovo.services.exceptions.ObjectNotFoundException;
@@ -56,5 +57,8 @@ public class CategoriaService {
 		return repo.findAll(pageRequest);
 	}
 	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
+	}
 	
 }
