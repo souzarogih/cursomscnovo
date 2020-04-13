@@ -1,12 +1,11 @@
-package com.nelioalves.cursomscnovo;
+package com.nelioalves.cursomscnovo.services;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Service;
 
 import com.nelioalves.cursomscnovo.domain.Categoria;
 import com.nelioalves.cursomscnovo.domain.Cidade;
@@ -31,10 +30,10 @@ import com.nelioalves.cursomscnovo.repositories.PagamentoRepository;
 import com.nelioalves.cursomscnovo.repositories.PedidoRepository;
 import com.nelioalves.cursomscnovo.repositories.ProdutoRepository;
 
-@SpringBootApplication
-public class CursomscnovoApplication implements CommandLineRunner{
+@Service
+public class DBService {
 
-/*	@Autowired
+	@Autowired
 	private CategoriaRepository categoriaRepository;
 	@Autowired
 	private ProdutoRepository produtoRepository;
@@ -51,16 +50,12 @@ public class CursomscnovoApplication implements CommandLineRunner{
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
 	@Autowired
-	private ItemPedidoRepository itemPedidoRepository;*/
+	private ItemPedidoRepository itemPedidoRepository;
 	
-	public static void main(String[] args) {
-		SpringApplication.run(CursomscnovoApplication.class, args);
-	}
+	public void instantiateTestDatabase() throws ParseException {
+		
 
-	//Método criado para salvar as informações básicas no banco de dados.
-	@Override
-	public void run(String... args) throws Exception {
-		/*
+		
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
 		Categoria cat3 = new Categoria(null, "Cama mesa e banho");
@@ -157,9 +152,9 @@ public class CursomscnovoApplication implements CommandLineRunner{
 		p2.getItens().addAll(Arrays.asList(ip3));
 		p3.getItens().addAll(Arrays.asList(ip2));
 		
-		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));*/
+		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
+		
+	
 		
 	}
-
-	
 }
